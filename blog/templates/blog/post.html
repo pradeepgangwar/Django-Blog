@@ -1,0 +1,121 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">PigeonTalk</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+			
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href=""></a></li>
+				<li><a href="">Logout</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div><!-- /.container-fluid -->
+</nav>
+
+<div class="text-center">
+	<a href="{{refer}}" class="btn btn-danger" role="button">Go Back</a>
+</div>
+
+<div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8">
+
+                
+                <h1>{{post.title}}</h1>
+
+                <p class="lead">
+                    by <a href="">{{post.author}}</a>
+                </p>
+
+                <hr>
+
+                <p><span class="glyphicon glyphicon-time"></span> Posted Date: {{post.published_date}}</p>
+
+                <hr>
+
+                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
+
+                <hr>
+
+                <p class="lead">{{post.text|linebreaksbr}}</p>
+
+                <hr>
+
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <div class="media">
+                    <a class="pull-left" href="">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Start
+                            <small>Auust 25,9:30</small>
+                        </h4>
+                        Cras sit amet nibh libero,
+                    </div>
+                </div>
+
+                <!-- Comment -->
+                <div class="media">
+                    <a class="pull-left" href="">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Start
+                            <small>August 25 9:30 PM</small>
+                        </h4>
+                        Cras sit amet nibh libero
+                        <!-- Nested Comment -->
+                        <br>
+                        <br>
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nested Start
+                                    <small>August 25 9:30 PM</small>
+                                </h4>
+                                Cras sit amet nibh libero
+                            </div>
+                        </div>
+                        <!-- End Nested Comment -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

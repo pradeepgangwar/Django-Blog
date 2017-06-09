@@ -22,11 +22,13 @@ To get this blog **running** on your local machine. **Clone** the directory and 
     python manage.py createsuperuser
     python manage.py runserver
 ___
+## Important!
 
 #### After successfully executing these commands, just go to `localhost:8000` to browse your blog. The following urls and instructions are useful in this blog.
 
 - `localhost:8000/accounts/login` to login with your account. You can use your **admin account** to login with admin privilages.
 - `localhost:8000/admin` to access django **admin interface**.
+- If in settings.py DEBUG mode is set to false please run `python manage.py runserver --insecure` to renser static files correctly on local testing.
 - admin can login from either of the two method to get logged in.
 - Fill out the details like First Name, Last Name etc in the Django-admin Users model to render them in the blog.
 

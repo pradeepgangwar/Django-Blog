@@ -6,13 +6,13 @@ A ready to use blog application to maintain your blog. Use this to maintain your
 ___
 
 ### Features of This Blog :
-- Admin interface with all privilages to access modify all posts.
-- Admin can invite other users to post by registering them as User from Django-admin panel. Other users have limited privilages.
-- Posts can be saved as draft before they can be shared with public.
+- **Admin interface** with all privilages to access modify all posts.
+- Admin can **invite** other users to post by registering them as User from **Django-admin panel**. Other users have limited privilages.
+- Posts can be saved as **draft** before they can be shared with public.
 - Users are not allowed to touch sensitive information without logging in and without having sufficient privilages.
 
-
-To get this blog running on your local machine. Clone the directory and activate your python virtual environment. After you setup your virtual environment. Run following commands.
+___
+To get this blog **running** on your local machine. **Clone** the directory and activate your python **virtual environment**. After you setup your virtual environment. **Run** following commands.
 
     pip install django
     pip install -r requirements.txt
@@ -23,9 +23,11 @@ To get this blog running on your local machine. Clone the directory and activate
     python manage.py runserver
 ___
 
-#### After successfully executing these commands, just go to `localhost:8000` to browse your blog. The following urls are useful in this blog.
+#### After successfully executing these commands, just go to `localhost:8000` to browse your blog. The following urls and instructions are useful in this blog.
 
-- `localhost:8000/accounts/login` to login with your account. You can use your admin account to login with admin privilages.
--  `localhost:8000/admin` to access django admin interface.
+- `localhost:8000/accounts/login` to login with your account. You can use your **admin account** to login with admin privilages.
+- `localhost:8000/admin` to access django **admin interface**.
+- admin can login from either of the two method to get logged in.
+- Fill out the details like First Name, Last Name etc in the Django-admin Users model to render them in the blog.
 
 Enjoy :+1:

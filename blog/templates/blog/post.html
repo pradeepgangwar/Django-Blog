@@ -2,6 +2,15 @@
 
 {% block content %}
 
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger text-center" id="danger">
+   {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
 {% if post.published_date %}
     <div class="" style="margin-left: 8%;">
     	<a href="{% url 'post_list' %}" class="btn btn-danger" role="button">Go Back</a>
@@ -23,8 +32,10 @@
                 
                 <h1>{{post.title}}
                 {% if user.is_authenticated %}
+                {% if user == post.author or user.is_superuser %}
 
-                 <a href="{% url 'post_detail' pk=post.pk %}"><i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-left: 0%; float: right;"></i></a><a href="{% url 'post_delete' pk=post.pk %}"><i class="fa fa-trash-o" aria-hidden="true" style="padding-right: 3%; float: right;"></i></a> 
+                 <a href="{% url 'post_edit' pk=post.pk %}"><i class="fa fa-pencil-square-o" aria-hidden="true" style="padding-left: 0%; float: right;"></i></a><a href="{% url 'post_delete' pk=post.pk %}"><i class="fa fa-trash-o" aria-hidden="true" style="padding-right: 3%; float: right;"></i></a> 
+                 {% endif %}
                  {% endif %}
 
                  </h1>

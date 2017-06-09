@@ -31,9 +31,7 @@ def post_detail(request, pk):
 			return redirect('post_list')
 		if request.user.is_superuser or post.author.username == request.user.username:
 			return render(request, 'blog/post.html', {'post': post, 'refer': refer})
-			print('True')
 		else:
-			print('True')
 			messages.warning(request, 'Not allowed to access this.')
 			return redirect('post_list')
 	return render(request, 'blog/post.html', {'post': post, 'refer': refer})
@@ -42,6 +40,29 @@ def post_detail(request, pk):
 def post_draft(request):
 	posts = Post.objects.filter(author__username= request.user.username).filter(published_date__isnull = True).order_by('created_date')
 	return render(request, 'blog/drafts.html', {'posts': posts})
+
+@login_required
+def post_edit(request, pk):
+	post = get_object_or_404(Post, pk=pk)
+ 	if request.method == "POST":
+		form = PostForm(request.POST, instance=post)
+		if form.is_valid():
+			post = form.save(commit=False)
+	   		post.author = request.user
+	   		post.published_date = timezone.now()
+	   		post.save()
+			return redirect('post_detail', pk=post.pk)
+		else:
+			form = PostForm(instance=post)
+	if request.user.is_superuser or post.author.username == request.user.username:
+		form = PostForm(instance=post)
+		refer = request.META.get('HTTP_REFERER')
+		return render(request, 'blog/post_new.html', {'form': form, 'refer': refer})
+	else:
+		messages.warning(request, 'Not allowed to access this.')
+		refer = request.META.get('HTTP_REFERER')
+		return redirect('post_list')
+    
 
 @login_required
 def post_publish(request, pk):

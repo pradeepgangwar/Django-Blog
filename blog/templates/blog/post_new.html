@@ -2,6 +2,15 @@
 
 {% block content %}
 
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-danger text-center" id="danger">
+   {{message}}
+</div>
+{% endfor %}
+{% endif %}
+
 <h1 class="text-center">Add New post here:</h1>
 <br>
 <br>

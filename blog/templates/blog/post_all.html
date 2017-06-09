@@ -8,23 +8,12 @@
 		<h3> You are admin </h3>
 	{% endif %}
 	<a href="{% url 'post_new' %}" class="btn btn-success" role="button">Add New Post</a>
-	<a href="{% url 'post_draft' %}" class="btn btn-primary" role="button">My Draft Post(s)</a>
 </div>
 
+<h2 class="text-center"> <b>These are all post published on blog: </b></h2>
 
-<h2 class="text-center"> <b>Your Published posts: </b></h2>
-{% else %}
-<h2 class="text-center"> <b> My Blog </b></h2>
 {% endif %}
 <br>
-
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-danger text-center" id="danger">
-   {{message}}
-</div>
-{% endfor %}
-{% endif %}
 
 
 {% for post in posts %}
@@ -52,7 +41,6 @@
 {% endfor %}
 
 <br><br><br><br>
-
 
 {% endblock %}
 

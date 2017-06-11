@@ -44,6 +44,7 @@ def post_draft(request):
 @login_required
 def post_edit(request, pk):
 	post = get_object_or_404(Post, pk=pk)
+	error = 'edit'
  	if request.method == "POST":
 		form = PostForm(request.POST, instance=post)
 		if form.is_valid():
@@ -57,7 +58,7 @@ def post_edit(request, pk):
 	if request.user.is_superuser or post.author.username == request.user.username:
 		form = PostForm(instance=post)
 		refer = request.META.get('HTTP_REFERER')
-		return render(request, 'blog/post_new.html', {'form': form, 'refer': refer})
+		return render(request, 'blog/post_new.html', {'form': form, 'refer': refer, 'error': error})
 	else:
 		messages.warning(request, 'Not allowed to access this.')
 		refer = request.META.get('HTTP_REFERER')
@@ -90,6 +91,7 @@ def post_delete(request, pk):
 @login_required
 def post_new(request):
 	refer = request.META.get('HTTP_REFERER')
+	error = None
 	if request.method == 'POST':
 		form = PostForm(request.POST)
 		if 'submit2' in request.POST:
@@ -109,4 +111,4 @@ def post_new(request):
        			return redirect('post_draft')
 	else:
 		form = PostForm()
-	return render(request, 'blog/post_new.html', {'form': form, 'refer': refer})
+	return render(request, 'blog/post_new.html', {'form': form, 'refer': refer, 'error': error})

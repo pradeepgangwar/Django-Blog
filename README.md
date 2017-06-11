@@ -28,8 +28,8 @@ ___
 
 - `localhost:8000/accounts/login` to login with your account. You can use your **admin account** to login with admin privilages.
 - `localhost:8000/admin` to access django **admin interface**.
-- If in settings.py DEBUG mode is set to false please run `python manage.py runserver --insecure` to run server and render static files correctly on local testing.
-- admin can login from either of the two method to get logged in.
+- If in settings.py **DEBUG** mode is set to **false** please run `python manage.py runserver --insecure` to run server and render static files correctly on local testing.
+- Admin can login from either from Django admin or blog login page to get logged in.
 - Fill out the details like First Name, Last Name etc in the Django-admin Users model to render them in the blog.
 
 Enjoy :+1:
